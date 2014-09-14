@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Mocha Tests</title>
+  <link rel="stylesheet" href="../lib/mocha/mocha.css" />
+</head>
+<body>
+  <div id="mocha"></div>
+  <script src="../lib/jquery/jquery.js"></script>
+  <script src="../lib/chai/chai.js"></script>
+  <script src="../lib/mocha/mocha.js"></script>
+  <script>
+    mocha.setup('bdd');
+    window.expect = chai.expect;
+  </script>
+
+  <!-- Trie source file -->
+  <script src="../trie.js"></script>
+
+  <!-- Trie data structure tests -->
+  <script src="TrieTest.js"></script>
+
+  <script>
+    mocha.checkLeaks();
+    mocha.globals(['jQuery']);
+    mocha.run();
+  </script>
+</body>
+</html>
