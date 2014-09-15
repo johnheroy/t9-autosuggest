@@ -6,13 +6,19 @@
   </head>
   <body>
 
+    <!-- Listen for keystrokes and query the dictionary -->
+    <script>
+      var trie = new Trie('*');
+      var dictionary;
+    </script>
+
     <!-- Load the dictionary -->
     <script>
       $.get('words/google-10000-english.txt', function(data){
-        var dictionary = data.split('\n');
-        console.log(dictionary[0]);
-        console.log(dictionary[1]);
-        console.log(dictionary[2]);
+        dictionary = data.split('\n');
+        for (var i = 0; i < dictionary.length; i++){
+          trie.insertWord(dictionary[i]);
+        }
       });
     </script>
   </body>
