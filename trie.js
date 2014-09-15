@@ -28,11 +28,10 @@ Trie.prototype.getAllWords = function(){
   } else {
     if (this.value === 'leafy branch'){ results.push(this.word); }
     for (var k in this){
+      // only the alphabetical keys have length of 1
       if (k.length === 1){
         var children = this[k].getAllWords();
-        for (var i = 0; i < children.length; i++){
-          results.push(children[i]);
-        }
+        for (var i = 0; i < children.length; i++){ results.push(children[i]); }
       }
     }
   }  
