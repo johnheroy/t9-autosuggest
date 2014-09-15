@@ -19,4 +19,12 @@ describe('trie', function(){
     expect(trie.h.value).to.be.equal('branch');
     expect(trie.w.o.r.l.d.value).to.be.equal('leaf');
   });
+
+  it('should return array of possible words when accessing trie.getAllWords()', function(){
+    trie.insertWord('hello');
+    trie.insertWord('hell');
+    trie.insertWord('world');
+    expect(trie.getAllWords()).to.be.eql(['hello', 'hell', 'world']);
+    expect(trie.h.getAllWords()).to.be.eql(['hello', 'hell']);
+  });
 })
