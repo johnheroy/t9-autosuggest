@@ -2,7 +2,7 @@ var Trie = function(value){
   this.value = value;
 };
 
-Trie.prototype.insertWord = function(word){
+Trie.prototype.insertWord = function(word, rank){
   var chars = word.split('');
   var level = this;
   var newBranch;
@@ -18,6 +18,7 @@ Trie.prototype.insertWord = function(word){
   }
   level.value = (newBranch) ? 'leaf' : 'leafy branch';
   level.word = word;
+  level.rank = rank;
 };
 
 Trie.prototype.getAllWords = function(){

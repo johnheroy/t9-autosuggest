@@ -3,8 +3,22 @@
   <head>
     <script src="lib/zepto/zepto.min.js"></script>
     <script src="src/trie.js"></script>
+    <link rel="stylesheet" href="style/styles.css">
   </head>
   <body>
+    <div class="container">
+      <h2>T9-esque Predictive Text Input</h2>
+      <div class="input-box">
+        Start typing or clicking numbers...
+      </div>
+      <div class="suggestion-box">
+      </div>
+      <div class="keypad">
+        <div class="number">
+          
+        </div>
+      </div>
+    </div>
 
     <!-- Listen for keystrokes and query the dictionary -->
     <script>
@@ -17,7 +31,7 @@
       $.get('words/google-10000-english.txt', function(data){
         dictionary = data.split('\n');
         for (var i = 0; i < dictionary.length; i++){
-          trie.insertWord(dictionary[i]);
+          trie.insertWord(dictionary[i], i);
         }
       });
     </script>
