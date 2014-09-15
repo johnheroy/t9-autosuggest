@@ -1,10 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script src="lib/zepto.min.js"></script>
+    <script src="lib/zepto/zepto.min.js"></script>
     <script src="src/trie.js"></script>
   </head>
   <body>
     <!-- UI + logic for querying the trie go here -->
+
+    <!-- Load the dictionary -->
+    <script>
+      $.get('words/google-10000-english.txt', function(data){
+        var dictionary = data.split('\n');
+        console.log(dictionary[0]);
+      });
+    </script>
   </body>
 </html>

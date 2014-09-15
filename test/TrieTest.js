@@ -24,7 +24,7 @@ describe('trie', function(){
     trie.insertWord('hello');
     trie.insertWord('hell');
     trie.insertWord('world');
-    expect(trie.getAllWords()).to.be.eql(['hello', 'hell', 'world']);
-    expect(trie.h.getAllWords()).to.be.eql(['hello', 'hell']);
+    expect(trie.getAllWords()).to.be.eql(['hell', 'hello', 'world']);
+    expect(trie.h.getAllWords()).to.be.eql(['hell', 'hello']);
   });
 })
