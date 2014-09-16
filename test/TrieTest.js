@@ -27,4 +27,20 @@ describe('trie', function(){
     expect(trie.getAllWords()).to.be.eql(['hell', 'hello', 'world']);
     expect(trie.h.getAllWords()).to.be.eql(['hell', 'hello']);
   });
+
+  it('should return array with correct length when accessing trie.getAllWords()', function(){
+    trie.insertWord('he');
+    trie.insertWord('heman');
+    trie.insertWord('heroy');
+    trie.insertWord('herro');
+    trie.insertWord('hell');
+    trie.insertWord('hello');
+    trie.insertWord('yoyoyo');
+    trie.insertWord('hemp');
+    trie.insertWord('helloo');
+    trie.insertWord('hellooo');
+    console.log(trie);
+    console.log(trie.getAllWords());
+    expect(trie.getAllWords().length).to.be.equal(10);
+  });
 })

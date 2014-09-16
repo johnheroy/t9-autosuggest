@@ -14,6 +14,9 @@ Trie.prototype.insertWord = function(word, rank){
       level[character] = new Trie('branch');
       newBranch = true;
     }
+    if (level.value === 'leaf'){
+      level.value = 'leafy branch'; 
+    }
     level = level[character];
   }
   level.value = (newBranch) ? 'leaf' : 'leafy branch';
