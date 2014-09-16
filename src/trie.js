@@ -43,3 +43,22 @@ Trie.prototype.getAllWords = function(){
   return results;
 };
 
+Trie.prototype.getAllWordsWithRank = function(){
+  var results = [];
+
+  if (this.value === 'leaf'){
+    results.push([this.word, this.rank]);
+  } else {
+    if (this.value === 'leafy branch'){ results.push([this.word, this.rank]); }
+    for (var k in this){
+      // only the alphabetical keys have length of 1
+      if (k.length === 1){
+        var children = this[k].getAllWordsWithRank();
+        for (var i = 0; i < children.length; i++){ results.push(children[i]); }
+      }
+    }
+  }  
+
+  return results;
+};
+

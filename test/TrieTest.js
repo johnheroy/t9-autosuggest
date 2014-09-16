@@ -5,7 +5,7 @@ describe('trie', function(){
     trie = new Trie('*');
   });
 
-  it('should have the methods "insertWord" and "getAllWords"', function(){
+  it('should have the methods "insertWord", "getAllWords", and "getAllWordsWithRank"', function(){
     expect(trie.insertWord).to.be.a('function');
     expect(trie.getAllWords).to.be.a('function');
   });
@@ -26,6 +26,13 @@ describe('trie', function(){
     trie.insertWord('world');
     expect(trie.getAllWords()).to.be.eql(['hell', 'hello', 'world']);
     expect(trie.h.getAllWords()).to.be.eql(['hell', 'hello']);
+  });
+
+  it('should return array of tuples with word + rank when running trie.getAllWordsWithRank', function(){
+    trie.insertWord('hello', 1);
+    trie.insertWord('hell', 0);
+    trie.insertWord('world', 2);
+    expect(trie.getAllWordsWithRank()).to.be.eql([['hell', 0], ['hello', 1], ['world', 2]]);
   });
 
   it('should return array with correct length when accessing trie.getAllWords()', function(){
