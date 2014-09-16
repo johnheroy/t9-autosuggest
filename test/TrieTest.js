@@ -39,8 +39,8 @@ describe('trie', function(){
     trie.insertWord('hemp');
     trie.insertWord('helloo');
     trie.insertWord('hellooo');
-    console.log(trie);
-    console.log(trie.getAllWords());
+    // console.log(trie);
+    // console.log(trie.getAllWords());
     expect(trie.getAllWords().length).to.be.equal(10);
   });
 })

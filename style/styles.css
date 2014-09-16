@@ -1,11 +1,34 @@
 .container {
-  max-width: 320px;
+  width: 360px;
   margin: 0 auto;
   margin-top: 120px;
+}
+
+.title {
+  text-align: center;
+  /* todo: make nicer font */
 }
 
 .input-box {
   border: 1px solid grey;
   border-radius: 5px;
-  padding: 10px;
+  padding: 15px;
+  margin: 10px;
+}
+
+.suggestion-box {
+  margin-left: 20px;
+}
+
+.keypad {
+
+}
+
+.number-key {
+  margin: 10px;
+  height: 50px;
+  width: 100px;
+  border: 1px solid grey;
+  border-radius: 5px;
+
 }
