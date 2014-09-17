@@ -1,3 +1,7 @@
+body {
+  background-color: #F2F1E4;
+}
+
 .container {
   width: 360px;
   margin: 0 auto;
@@ -5,8 +9,11 @@
 }
 
 .title {
-  text-align: center;
+  text-align: left;
+  margin-left: 10px;
   /* todo: make nicer font */
+  font-family: Helvetica;
+  font-size: 36px;
 }
 
 .input-box {
@@ -24,11 +31,31 @@
 
 }
 
-.number-key {
-  margin: 10px;
-  height: 50px;
+a.number-key {
+  display: inline-block;
+  margin: 9px;
+  height: 80px;
   width: 100px;
   border: 1px solid grey;
   border-radius: 5px;
-
+  float: left;
 }
+
+.number {
+  display: inline-block;
+  margin-left: 40px;
+  font-weight: bold;
+  font-size: 32px;
+  margin-top: 10px;
+}
+
+.letters {
+  display: inline-block;
+  margin-top: 2px;
+  margin-left: 27px;
+}
+
+.letters-4 {
+  margin-left: 20px;
+}
+
