@@ -7,11 +7,12 @@
   </head>
   <body>
     <div class="container">
-      <h1 class="title">T9-esque Predictive Text Input</h1>
+      <h1 class="title">T9 Text Input</h1>
       <div class="input-box">
         Start typing or clicking numbers...
       </div>
       <div class="suggestion-box">
+        Suggestions will appear here...
       </div>
       <div class="keypad">
         <a href="#" class="number-key">
@@ -49,23 +50,38 @@
           <span class="number">9</span><br>
           <span class="letters letters-4">W X Y Z</span>
         </a>
+        <a href="#" class="number-key number-0">
+          <span class="number">0</span><br>
+          <!-- <span class="letters letters-4">W X Y Z</span> -->
+        </a>
       </div>
     </div>
 
-    <!-- Listen for keystrokes and query the dictionary -->
+    <!-- Load the dictionary -->
     <script>
       var trie = new Trie('*');
       var dictionary;
-    </script>
+    
+      // $.get('words/google-10000-english.txt', function(data){
+      //   dictionary = data.split('\n');
+      //   for (var i = 0; i < dictionary.length; i++){
+      //     trie.insertWord(dictionary[i], i);
+      //   }
 
-    <!-- Load the dictionary -->
-    <script>
-      $.get('words/google-10000-english.txt', function(data){
-        dictionary = data.split('\n');
-        for (var i = 0; i < dictionary.length; i++){
-          trie.insertWord(dictionary[i], i);
+
+      // });
+      $(document).keypress(function(event){
+        switch (event.which) {
+          case 48: // 0
+            // alert('its a zero');
+            $('.number-0').addClass('active');
+            setTimeout(function(){
+              $('.number-0').removeClass('active');
+            }, 100);
+            break;
         }
       });
     </script>
+
   </body>
 </html>

@@ -5,15 +5,16 @@ body {
 .container {
   width: 360px;
   margin: 0 auto;
-  margin-top: 120px;
+  margin-top: 100px;
 }
 
 .title {
-  text-align: left;
-  margin-left: 10px;
+  text-align: center;
+  /*margin-left: 10px;*/
   /* todo: make nicer font */
   font-family: Helvetica;
-  font-size: 36px;
+  font-size: 52px;
+  margin-bottom: 20px;
 }
 
 .input-box {
@@ -21,10 +22,17 @@ body {
   border-radius: 5px;
   padding: 15px;
   margin: 10px;
+  font-family: Helvetica;
+  box-shadow: 0px 0px 20px 0px rgba(221,222,235,1);
+  background-color: white;
 }
 
 .suggestion-box {
-  margin-left: 20px;
+  margin: 10px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 15px;
+  display: none;
 }
 
 .keypad {
@@ -33,12 +41,25 @@ body {
 
 a.number-key {
   display: inline-block;
-  margin: 9px;
+  margin: 10px;
   height: 80px;
   width: 100px;
-  border: 1px solid grey;
+  /*border: 1px solid grey;*/
   border-radius: 5px;
   float: left;
+  box-shadow: 0px 6px 0px rgba(80,31,5,1), 0px 9px 25px rgba(0,0,0,.7);
+  background-color: #692907;
+  color: #EBF5EC;
+}
+
+a.number-key.active {
+  box-shadow: 0px 2px 0px rgba(80,31,5,1), 0px 3px 6px rgba(0,0,0,.9);
+  position: relative;
+  top: 6px;
+}
+
+.number-0 {
+  margin-left: 130px !important;
 }
 
 .number {
