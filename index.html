@@ -3,6 +3,7 @@
   <head>
     <script src="lib/zepto/zepto.min.js"></script>
     <script src="src/trie.js"></script>
+    <script src="src/init.js"></script>
     <link rel="stylesheet" href="style/styles.css">
   </head>
   <body>
@@ -15,73 +16,45 @@
         Suggestions will appear here...
       </div>
       <div class="keypad">
-        <a href="#" class="number-key">
+        <a href="#" class="number-key number-1">
           <span class="number">1</span>
         </a>
-        <a href="#" class="number-key">
+        <a href="#" class="number-key number-2">
           <span class="number">2</span><br>
           <span class="letters">A B C</span>
         </a>
-        <a href="#" class="number-key">
+        <a href="#" class="number-key number-3">
           <span class="number">3</span><br>
           <span class="letters">D E F</span>
         </a>
-        <a href="#" class="number-key">
+        <a href="#" class="number-key number-4">
           <span class="number">4</span><br>
           <span class="letters">G H I</span>
         </a>
-        <a href="#" class="number-key">
+        <a href="#" class="number-key number-5">
           <span class="number">5</span><br>
           <span class="letters">J K L</span>
         </a>
-        <a href="#" class="number-key">
+        <a href="#" class="number-key number-6">
           <span class="number">6</span><br>
           <span class="letters">M N O</span>
         </a>
-        <a href="#" class="number-key">
+        <a href="#" class="number-key number-7">
           <span class="number">7</span><br>
           <span class="letters letters-4">P Q R S</span>
         </a>
-        <a href="#" class="number-key">
+        <a href="#" class="number-key number-8">
           <span class="number">8</span><br>
           <span class="letters">T U V</span>
         </a>
-        <a href="#" class="number-key">
+        <a href="#" class="number-key number-9">
           <span class="number">9</span><br>
           <span class="letters letters-4">W X Y Z</span>
         </a>
         <a href="#" class="number-key number-0">
-          <span class="number">0</span><br>
-          <!-- <span class="letters letters-4">W X Y Z</span> -->
+          <span class="number">0</span>
         </a>
       </div>
     </div>
-
-    <!-- Load the dictionary -->
-    <script>
-      var trie = new Trie('*');
-      var dictionary;
-    
-      // $.get('words/google-10000-english.txt', function(data){
-      //   dictionary = data.split('\n');
-      //   for (var i = 0; i < dictionary.length; i++){
-      //     trie.insertWord(dictionary[i], i);
-      //   }
-
-
-      // });
-      $(document).keypress(function(event){
-        switch (event.which) {
-          case 48: // 0
-            // alert('its a zero');
-            $('.number-0').addClass('active');
-            setTimeout(function(){
-              $('.number-0').removeClass('active');
-            }, 100);
-            break;
-        }
-      });
-    </script>
-
   </body>
 </html>

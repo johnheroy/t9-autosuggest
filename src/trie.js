@@ -21,7 +21,9 @@ Trie.prototype.insertWord = function(word, rank){
   }
   level.value = (newBranch) ? 'leaf' : 'leafy branch';
   level.word = word;
-  level.rank = rank;
+  if (rank) {
+    level.rank = rank;
+  }
 };
 
 Trie.prototype.getAllWords = function(){
