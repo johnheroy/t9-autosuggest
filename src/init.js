@@ -18,7 +18,7 @@ $(document).ready(function(){
     // Change 'loading' text to 'please input'
     // bring input box into focus
     $('.input-box').text('Start typing or clicking numbers to begin');
-    $('.input-box').css('0px 0px 20px 0px rgba(221,222,235,1)');
+    $('.input-box').css('box-shadow', '0px 0px 20px 0px rgba(221,222,235,1)');
   };
 
   $.get('words/google-10000-english.txt', function(data){
