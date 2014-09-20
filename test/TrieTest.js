@@ -5,9 +5,11 @@ describe('trie', function(){
     trie = new Trie('*');
   });
 
-  it('should have the methods "insertWord", "getAllWords", and "getAllWordsWithRank"', function(){
+  it('should have the methods "insertWord", "getAllWords", "getAllWordsWithRank", and "getAllWordsStartingWith"', function(){
     expect(trie.insertWord).to.be.a('function');
     expect(trie.getAllWords).to.be.a('function');
+    expect(trie.getAllWordsWithRank).to.be.a('function');
+    expect(trie.getAllWordsStartingWith).to.be.a('function');
   });
 
   it('should access inserted words by chained dot notation', function(){
@@ -32,6 +34,7 @@ describe('trie', function(){
     trie.insertWord('hello', 1);
     trie.insertWord('hell', 0);
     trie.insertWord('world', 2);
+    // console.log(trie.getAllWordsWithRank());
     expect(trie.getAllWordsWithRank()).to.be.eql([['hell', 0], ['hello', 1], ['world', 2]]);
   });
 

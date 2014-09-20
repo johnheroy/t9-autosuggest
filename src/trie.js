@@ -22,7 +22,7 @@
     }
     level.value = (newBranch) ? 'leaf' : 'leafy branch';
     level.word = word;
-    if (rank) {
+    if (rank !== undefined) {
       level.rank = rank;
     }
   };
@@ -64,5 +64,10 @@
 
     return results;
   };
+
+  Trie.prototype.getAllWordsStartingWith = function(fragment){
+    
+  };
+
 }).call(this);
 
