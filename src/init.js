@@ -1,6 +1,6 @@
 $(document).ready(function(){
   var trie = new Trie('*');
-  var converter = new NumberToLetterConverter();
+  var converter;
   var dictionary;
 
   var whichKeyClass = function(num){
@@ -23,9 +23,12 @@ $(document).ready(function(){
 
   // keyboard events
   $(document).keydown(function(event){
+    console.log(event);
     $(whichKeyClass(event.which)).addClass('active');
-    converter.addNewNumber(whichKey(event.which));
-    updateInputBox();
+    if (converter !== undefined){
+      converter.addNewNumber(whichKey(event.which));
+      updateInputBox();
+    }
   });
 
   $(document).keyup(function(event){
@@ -36,6 +39,7 @@ $(document).ready(function(){
     $('.input-box').text('Start typing or clicking numbers to begin');
     // fixme
     $('.input-box').css('box-shadow', '0px 0px 20px 0px rgba(221,222,235,1)');
+    converter = NumberToLetterConverter();
   };
 
   $.get('words/google-10000-english.txt', function(data){
