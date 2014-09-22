@@ -18,6 +18,7 @@ $(document).ready(function(){
       words.concat(trie.getAllWordsStartingWith(permutations[i]));
     }
     console.log(words);
+    // TODO: get words by rank then show highest rank
   };
 
   // keyboard events
