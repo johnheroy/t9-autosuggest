@@ -53,4 +53,11 @@ describe('trie', function(){
     // console.log(trie.getAllWords());
     expect(trie.getAllWords().length).to.be.equal(10);
   });
-})
+
+  it('should return possible words based on fragment', function(){
+    trie.insertWord('heman');
+    trie.insertWord('heroy');
+    expect(trie.getAllWordsStartingWith('he')).to.be.eql(['heman', 'heroy']);
+  });
+
+});

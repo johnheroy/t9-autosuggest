@@ -66,7 +66,15 @@
   };
 
   Trie.prototype.getAllWordsStartingWith = function(fragment){
-    
+    var level = this;
+    for (var i = 0; i < fragment.length; i++){
+      var character = fragment[i];
+      if (!level[character]){
+        return []; // no words
+      }
+      level = level[character];
+    }
+    return level.getAllWords();
   };
 
 }).call(this);
