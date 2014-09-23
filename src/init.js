@@ -26,6 +26,7 @@ $(document).ready(function(){
     console.log(event);
     $(whichKeyClass(event.which)).addClass('active');
     if (converter !== undefined){
+      console.log('Adding new number to converter');
       converter.addNewNumber(whichKey(event.which));
       updateInputBox();
     }
@@ -37,9 +38,8 @@ $(document).ready(function(){
 
   var dictionaryHasLoaded = function(){
     $('.input-box').text('Start typing or clicking numbers to begin');
-    // fixme
     $('.input-box').css('box-shadow', '0px 0px 20px 0px rgba(221,222,235,1)');
-    converter = NumberToLetterConverter();
+    converter = new NumberToLetterConverter();
   };
 
   $.get('words/google-10000-english.txt', function(data){
