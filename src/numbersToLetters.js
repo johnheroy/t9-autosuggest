@@ -17,8 +17,7 @@
     this._outputs = [];
   };
 
-  NumberToLetterConverter.prototype.addNewNumber = function(num){
-    this._input.push(num);
+  NumberToLetterConverter.prototype.generateNewOutputs = function(num){
     var newOutput = [];
     var newLetters = numbersToLetters[num];
 
@@ -35,13 +34,28 @@
     this._outputs = newOutput;
   };
 
+  NumberToLetterConverter.prototype.addNewNumber = function(num){
+    this._input.push(num);
+    this.generateNewOutputs(num);
+  };
+
+  NumberToLetterConverter.prototype.removeNumber = function(){
+    if (this._input.length > 0){
+      this._input.pop();
+      this._outputs = [];
+      for (var i = 0; i < this._input.length; i++){
+        this.generateNewOutputs(this._input[i]);
+      }
+    }
+  };
+
   NumberToLetterConverter.prototype.clear = function(){
     this._input = [];
     this._outputs = [];
   };
 
   NumberToLetterConverter.prototype.getLetterPermutations = function(){
-    return this._outputs;
+    return this._outputs.slice();
   };
 
 }).call(this);

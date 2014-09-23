@@ -13,21 +13,47 @@ $(document).ready(function(){
 
   var updateInputBox = function(){
     var permutations = converter.getLetterPermutations();
+
+    if (permutations.length === 0){
+      $('.input-box').text('try again!');
+      $('.input-box').css('text-decoration', 'none');
+      return;
+    }
+
     var words = [];
     for (var i = 0; i < permutations.length; i++){
-      words.concat(trie.getAllWordsStartingWith(permutations[i]));
+      var possibilities = trie.getAllWordsWithRankStartingWith(permutations[i]);
+      var totalRank = _.reduce(possibilities, function(memo, item){
+        return memo + item[1];
+      }, 0);
+      permutations[i] = [permutations[i], totalRank];
+      words = words.concat(possibilities);
     }
-    console.log(words);
-    // TODO: get words by rank then show highest rank
+
+    // get the highest ranked fragment and show user this one
+    var bestFragmentIndex = 0;
+    for (var j = 1; j < permutations.length; j++){
+      if (permutations[j][1] > permutations[bestFragmentIndex][1]){
+        bestFragmentIndex = j;
+      }
+    }
+    var bestFragment = permutations[bestFragmentIndex][0];
+    $('.input-box').text(bestFragment);
+    $('.input-box').css('text-decoration', 'underline');
+
   };
 
-  // keyboard events
   $(document).keydown(function(event){
-    console.log(event);
+    var key = whichKey(event.which);
     $(whichKeyClass(event.which)).addClass('active');
-    if (converter !== undefined){
+    if (converter !== undefined && key >= 0 && key <= 9){
       console.log('Adding new number to converter');
       converter.addNewNumber(whichKey(event.which));
+      updateInputBox();
+    } else if (converter !== undefined && event.which === 8){
+      event.preventDefault();
+      console.log('Removing letter');
+      converter.removeNumber();
       updateInputBox();
     }
   });
@@ -45,7 +71,7 @@ $(document).ready(function(){
   $.get('words/google-10000-english.txt', function(data){
     dictionary = data.split('\n');
     for (var i = 0; i < dictionary.length; i++){
-      trie.insertWord(dictionary[i], i);
+      trie.insertWord(dictionary[i], 10000 - i);
     }
     dictionaryHasLoaded();
   });

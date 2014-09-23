@@ -77,5 +77,17 @@
     return level.getAllWords();
   };
 
+  Trie.prototype.getAllWordsWithRankStartingWith = function(fragment){
+    var level = this;
+    for (var i = 0; i < fragment.length; i++){
+      var character = fragment[i];
+      if (!level[character]){
+        return []; // no words
+      }
+      level = level[character];
+    }
+    return level.getAllWordsWithRank();
+  };
+
 }).call(this);
 
