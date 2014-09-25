@@ -1,0 +1,27 @@
+{
+  "name": "t9-autosuggest",
+  "version": "0.0.0",
+  "homepage": "https://github.com/johnheroy/t9-autosuggest",
+  "authors": [
+    "John Heroy <johnheroy@gmail.com>"
+  ],
+  "description": "T9 text input",
+  "main": "index.html",
+  "keywords": [
+    "t9",
+    "autosuggest",
+    "text",
+    "input"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "backbone": "~1.1.2"
+  }
+}
