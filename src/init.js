@@ -48,7 +48,7 @@ $(document).ready(function(){
     $(whichKeyClass(event.which)).addClass('active');
     if (converter !== undefined && key >= 0 && key <= 9){
       console.log('Adding new number to converter');
-      converter.addNewNumber(whichKey(event.which));
+      converter.addNewNumber(key);
       updateInputBox();
     } else if (converter !== undefined && event.which === 8){
       event.preventDefault();
@@ -60,6 +60,20 @@ $(document).ready(function(){
 
   $(document).keyup(function(event){
     $(whichKeyClass(event.which)).removeClass('active');
+  });
+
+  $('a.number-key').on('click', function(e){
+    e.preventDefault();
+    $(this).addClass('active');
+    var key = parseInt($(this).find('span.number').text());
+    if (converter !== undefined && key >= 0 && key <= 9){
+      console.log('Adding new number to converter');
+      converter.addNewNumber(key);
+      updateInputBox();
+    }
+    setTimeout((function(){
+      $(this).removeClass('active');
+    }).bind(this), 200);
   });
 
   var dictionaryHasLoaded = function(){
